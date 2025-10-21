@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* ✅ smooth scrolling */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* --- App Layout --- */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 4rem;
+
+  /* ✅ background image setup */
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), 
+    url('./assets/sunset.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed; /* keeps image still while scrolling */
+}
+
+/* --- Search Box --- */
+.search input {
+  width: 60%;
+  max-width: 400px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.search input:focus {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+::placeholder {
+  color: #f2f2f2;
+}
+
+/* --- Error Text --- */
+.error {
+  color: #ffb3b3;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* --- Weather Container --- */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* --- Weather Card --- */
+.weather-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Animations --- */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Top Section --- */
+.top {
+  margin-bottom: 1rem;
+}
+
+.location p {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.icon span {
+  font-size: 4rem;
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+
+.temp h1 {
+  font-size: 4.5rem;
+  margin: 0.2rem 0;
+}
+
+.description p {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* --- Bottom Section --- */
+.bottom {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.bottom p {
+  font-size: 1rem;
+}
+
+.bold {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .search input {
+    width: 80%;
+    font-size: 1rem;
+  }
+  .temp h1 {
+    font-size: 3.5rem;
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .search input {
+    width: 70%;
+    font-size: 1.05rem;
+  }
+  .temp h1 {
+    font-size: 4rem;
+  }
+}
